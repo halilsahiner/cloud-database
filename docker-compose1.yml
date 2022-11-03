@@ -1,0 +1,56 @@
+version: "3"
+services:
+  kv-server.3:
+    image: ms3/gr10/ecs-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-ecsServer
+    ports: 
+      - "4000:4000"
+    command:
+      - "-a"
+      - "kv-server.3"
+      - "-p"
+      - "4000"
+      - "-ll"
+      - "FINEST"
+  kv-server.1:
+    image: ms3/gr10/kv-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-kvServer
+    ports: 
+      - "5152:5152"
+      - "4001:4000"
+      - "3000:3000"
+    depends_on:
+      - kv-server.3
+    command:
+      - "-c"
+      - "500"
+      - "-s"
+      - "LRU"
+      - "-a"
+      - "kv-server.1"
+      - "-p"
+      - "5152"
+      - "-rs"
+      - "kv-server.0"
+      - "-re"
+      - "255"
+      - "-ll"
+      - "FINEST"
+#  performance-client:
+#    image: ms3/gr10/performance-client:latest
+#    build:
+#      context: .
+#      dockerfile: Dockerfile-performanceClient
+#    depends_on:
+#      - ecs-server
+#      - kv-server1
+#    command:
+#      - "1"
+#      - "5c-1s-500-lru"
+#      - "get"
+#    volumes:
+#      - G:\ms3\performance\:/mnt/mydata

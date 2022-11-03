@@ -1,0 +1,6 @@
+EchoClient>connected_ack
+EchoClient>put_success putUpdateTestKey1
+EchoClient>put_update putUpdateTestKey1
+EchoClient>get_success putUpdateTestKey1 testValue2
+EchoClient>Connection terminated: localhost/127.0.0.1 / 5152
+Client application is closing.

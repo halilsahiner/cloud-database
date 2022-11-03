@@ -1,0 +1,4 @@
+connect localhost 5152
+put getTestKey1 testValue1
+get getTestKey1
+quit

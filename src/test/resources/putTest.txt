@@ -1,0 +1,3 @@
+connect localhost 5152
+put putTestKey1 testValue1
+quit

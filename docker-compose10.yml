@@ -1,0 +1,272 @@
+version: "3"
+
+services:
+  ecs-server:
+    image: ms3/gr10/ecs-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-ecsServer
+    ports: 
+      - "5151:5151"
+    command:
+      - "-a"
+      - "ecs-server" 
+      - "-p"
+      - "5151"
+  kv-server1:
+    image: ms3/gr10/kv-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-kvServer
+    ports: 
+      - "5152:5152"
+      - "3000:3000"
+    depends_on:
+      - ecs-server
+    command:
+      - "-c"
+      - "100"
+      - "-s"
+      - "LRU"
+      - "-a"
+      - "kv-server1" 
+      - "-p"
+      - "5152"
+      - "-b"
+      - "ecs-server:5151"
+      - "-ll"
+      - "ALL"
+  kv-server2:
+    image: ms3/gr10/kv-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-kvServer
+    ports: 
+      - "5153:5153"
+      - "3001:3000"
+    depends_on:
+      - ecs-server
+      - kv-server1
+    command:
+      - "-c"
+      - "100"
+      - "-s"
+      - "LRU"
+      - "-a"
+      - "kv-server2" 
+      - "-p"
+      - "5153"
+      - "-b"
+      - "ecs-server:5151"
+      - "-ll"
+      - "ALL"
+  kv-server3:
+    image: ms3/gr10/kv-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-kvServer
+    ports: 
+      - "5154:5154"
+      - "3002:3000"
+    depends_on:
+      - ecs-server
+      - kv-server1
+    command:
+      - "-c"
+      - "100"
+      - "-s"
+      - "LRU"
+      - "-a"
+      - "kv-server3" 
+      - "-p"
+      - "5154"
+      - "-b"
+      - "ecs-server:5151"
+      - "-ll"
+      - "ALL"
+  kv-server4:
+    image: ms3/gr10/kv-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-kvServer
+    ports: 
+      - "5155:5155"
+      - "3003:3000"
+    depends_on:
+      - ecs-server
+      - kv-server1
+    command:
+      - "-c"
+      - "100"
+      - "-s"
+      - "LRU"
+      - "-a"
+      - "kv-server4" 
+      - "-p"
+      - "5155"
+      - "-b"
+      - "ecs-server:5151"
+      - "-ll"
+      - "ALL"
+  kv-server5:
+    image: ms3/gr10/kv-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-kvServer
+    ports: 
+      - "5156:5156"
+      - "3004:3000"
+    depends_on:
+      - ecs-server
+      - kv-server1
+    command:
+      - "-c"
+      - "100"
+      - "-s"
+      - "LRU"
+      - "-a"
+      - "kv-server5" 
+      - "-p"
+      - "5156"
+      - "-b"
+      - "ecs-server:5151"
+      - "-ll"
+      - "ALL"
+  kv-server6:
+    image: ms3/gr10/kv-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-kvServer
+    ports: 
+      - "5157:5157"
+      - "3005:3000"
+    depends_on:
+      - ecs-server
+    command:
+      - "-c"
+      - "100"
+      - "-s"
+      - "LRU"
+      - "-a"
+      - "kv-server6" 
+      - "-p"
+      - "5157"
+      - "-b"
+      - "ecs-server:5151"
+      - "-ll"
+      - "ALL"
+  kv-server7:
+    image: ms3/gr10/kv-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-kvServer
+    ports: 
+      - "5158:5158"
+      - "3006:3000"
+    depends_on:
+      - ecs-server
+    command:
+      - "-c"
+      - "100"
+      - "-s"
+      - "LRU"
+      - "-a"
+      - "kv-server7" 
+      - "-p"
+      - "5158"
+      - "-b"
+      - "ecs-server:5151"
+      - "-ll"
+      - "ALL"
+  kv-server8:
+    image: ms3/gr10/kv-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-kvServer
+    ports: 
+      - "5159:5159"
+      - "3007:3000"
+    depends_on:
+      - ecs-server
+    command:
+      - "-c"
+      - "100"
+      - "-s"
+      - "LRU"
+      - "-a"
+      - "kv-server8" 
+      - "-p"
+      - "5159"
+      - "-b"
+      - "ecs-server:5151"
+      - "-ll"
+      - "ALL"
+  kv-server9:
+    image: ms3/gr10/kv-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-kvServer
+    ports: 
+      - "5160:5160"
+      - "3008:3000"
+    depends_on:
+      - ecs-server
+    command:
+      - "-c"
+      - "100"
+      - "-s"
+      - "LRU"
+      - "-a"
+      - "kv-server9" 
+      - "-p"
+      - "5160"
+      - "-b"
+      - "ecs-server:5151"
+      - "-ll"
+      - "ALL"
+  kv-server10:
+    image: ms3/gr10/kv-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-kvServer
+    ports: 
+      - "5161:5161"
+      - "3009:3000"
+    depends_on:
+      - ecs-server
+    command:
+      - "-c"
+      - "100"
+      - "-s"
+      - "LRU"
+      - "-a"
+      - "kv-server10" 
+      - "-p"
+      - "5161"
+      - "-b"
+      - "ecs-server:5151"
+      - "-ll"
+      - "ALL"
+  performance-client:
+    image: ms3/gr10/performance-client:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-performanceClient
+    depends_on:
+      - ecs-server
+      - kv-server1
+      - kv-server2
+      - kv-server3
+      - kv-server4
+      - kv-server5
+      - kv-server6
+      - kv-server7
+      - kv-server8
+      - kv-server9
+      - kv-server10
+    command:
+      - "10"
+      - "10c-10s-lfu"
+      - "get"
+    volumes:
+      - G:\ms3\performance\:/mnt/mydata

@@ -1,0 +1,4 @@
+EchoClient>connected_ack
+EchoClient>get_error getTestKey2
+EchoClient>Connection terminated: localhost/127.0.0.1 / 5152
+Client application is closing.

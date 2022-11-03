@@ -1,0 +1,3 @@
+connect localhost 5152
+get getTestKey2
+quit

@@ -1,0 +1,5 @@
+connect localhost 5152
+put putUpdateTestKey1 testValue1
+put putUpdateTestKey1 testValue2
+get putUpdateTestKey1
+quit

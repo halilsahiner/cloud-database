@@ -1,0 +1,491 @@
+version: "3"
+
+services:
+  kv-server.1:
+    image: ms5/gr10/kv-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-kvServer
+    ports: 
+      - "5151:5151"
+      - "3001:3000"
+      - "4001:4000"
+      - "5001:5000"
+    command:
+      - "-c"
+      - "200"
+      - "-s"
+      - "FIFO"
+      - "-a"
+      - "kv-server.1"
+      - "-p"
+      - "5151"
+      - "-rs"
+      - "kv-server.0"
+      - "-re"
+      - "1"
+      - "-ll"
+      - "SEVERE"
+  kv-server.2:
+    image: ms5/gr10/kv-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-kvServer
+    ports:
+      - "5152:5152"
+      - "3002:3000"
+      - "4002:4000"
+      - "5002:5000"
+    depends_on:
+      - kv-server.1
+    command:
+      - "-c"
+      - "200"
+      - "-s"
+      - "FIFO"
+      - "-a"
+      - "kv-server.2"
+      - "-p"
+      - "5152"
+      - "-rs"
+      - "kv-server.0"
+      - "-re"
+      - "6"
+      - "-ll"
+      - "SEVERE"
+  kv-server.3:
+    image: ms5/gr10/kv-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-kvServer
+    ports:
+      - "5153:5153"
+      - "3003:3000"
+      - "4003:4000"
+      - "5003:5000"
+    depends_on:
+      - kv-server.1
+    command:
+      - "-c"
+      - "200"
+      - "-s"
+      - "FIFO"
+      - "-a"
+      - "kv-server.3"
+      - "-p"
+      - "5153"
+      - "-rs"
+      - "kv-server.0"
+      - "-re"
+      - "6"
+      - "-ll"
+      - "SEVERE"
+  kv-server.4:
+    image: ms5/gr10/kv-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-kvServer
+    ports:
+      - "5154:5154"
+      - "3004:3000"
+      - "4004:4000"
+      - "5004:5000"
+    depends_on:
+      - kv-server.1
+    command:
+      - "-c"
+      - "200"
+      - "-s"
+      - "FIFO"
+      - "-a"
+      - "kv-server.4"
+      - "-p"
+      - "5154"
+      - "-rs"
+      - "kv-server.0"
+      - "-re"
+      - "6"
+      - "-ll"
+      - "SEVERE"
+  kv-server.5:
+    image: ms5/gr10/kv-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-kvServer
+    ports:
+      - "5155:5155"
+      - "3005:3000"
+      - "4005:4000"
+      - "5005:5000"
+    depends_on:
+      - kv-server.1
+    command:
+      - "-c"
+      - "200"
+      - "-s"
+      - "FIFO"
+      - "-a"
+      - "kv-server.5"
+      - "-p"
+      - "5155"
+      - "-rs"
+      - "kv-server.0"
+      - "-re"
+      - "6"
+      - "-ll"
+      - "SEVERE"
+  kv-server.6:
+    image: ms5/gr10/kv-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-kvServer
+    ports:
+      - "5156:5156"
+      - "3006:3000"
+      - "4006:4000"
+      - "5006:5000"
+    depends_on:
+      - kv-server.1
+    command:
+      - "-c"
+      - "200"
+      - "-s"
+      - "FIFO"
+      - "-a"
+      - "kv-server.6"
+      - "-p"
+      - "5156"
+      - "-rs"
+      - "kv-server.0"
+      - "-re"
+      - "6"
+      - "-ll"
+      - "SEVERE"
+  kv-server.7:
+    image: ms5/gr10/kv-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-kvServer
+    ports:
+      - "5157:5157"
+      - "3007:3000"
+      - "4007:4000"
+      - "5007:5000"
+    depends_on:
+      - kv-server.1
+    command:
+      - "-c"
+      - "200"
+      - "-s"
+      - "FIFO"
+      - "-a"
+      - "kv-server.7"
+      - "-p"
+      - "5157"
+      - "-rs"
+      - "kv-server.0"
+      - "-re"
+      - "6"
+      - "-ll"
+      - "SEVERE"
+  kv-server.8:
+    image: ms5/gr10/kv-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-kvServer
+    ports:
+      - "5158:5158"
+      - "3008:3000"
+      - "4008:4000"
+      - "5008:5000"
+    depends_on:
+      - kv-server.1
+    command:
+      - "-c"
+      - "200"
+      - "-s"
+      - "FIFO"
+      - "-a"
+      - "kv-server.8"
+      - "-p"
+      - "5158"
+      - "-rs"
+      - "kv-server.0"
+      - "-re"
+      - "5"
+      - "-ll"
+      - "SEVERE"
+  kv-server.9:
+    image: ms5/gr10/kv-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-kvServer
+    ports:
+      - "5159:5159"
+      - "3009:3000"
+      - "4009:4000"
+      - "5009:5000"
+    depends_on:
+      - kv-server.1
+    command:
+      - "-c"
+      - "200"
+      - "-s"
+      - "FIFO"
+      - "-a"
+      - "kv-server.9"
+      - "-p"
+      - "5159"
+      - "-rs"
+      - "kv-server.0"
+      - "-re"
+      - "5"
+      - "-ll"
+      - "SEVERE"
+  kv-server.10:
+    image: ms5/gr10/kv-server:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-kvServer
+    ports:
+      - "5160:5160"
+      - "3010:3000"
+      - "4010:4000"
+      - "5010:5000"
+    depends_on:
+      - kv-server.1
+    command:
+      - "-c"
+      - "200"
+      - "-s"
+      - "FIFO"
+      - "-a"
+      - "kv-server.10"
+      - "-p"
+      - "5160"
+      - "-rs"
+      - "kv-server.0"
+      - "-re"
+      - "5"
+      - "-ll"
+      - "SEVERE"
+# performance-client1:
+#   image: ms5/gr10/performance-client:latest
+#   build:
+#     context: .
+#     dockerfile: Dockerfile-performanceClient
+#   depends_on:
+#     - kv-server.1
+#     - kv-server.2
+#     - kv-server.3
+#     - kv-server.4
+#     - kv-server.5
+#     - kv-server.6
+#     - kv-server.7
+#     - kv-server.8
+#     - kv-server.9
+#     - kv-server.10
+#   command:
+#     - "1"
+#     - "1"
+#     - "1_2c-10s"
+#   volumes:
+#     - G:\ms3\performance\:/mnt/mydata
+# performance-client2:
+#   image: ms5/gr10/performance-client:latest
+#   build:
+#     context: .
+#     dockerfile: Dockerfile-performanceClient
+#   depends_on:
+#     - kv-server.1
+#     - kv-server.2
+#     - kv-server.3
+#     - kv-server.4
+#     - kv-server.5
+#     - kv-server.6
+#     - kv-server.7
+#     - kv-server.8
+#     - kv-server.9
+#     - kv-server.10
+#   command:
+#     - "1"
+#     - "1"
+#     - "2_2c-10s"
+#   volumes:
+#     - G:\ms3\performance\:/mnt/mydata
+#  performance-client3:
+#    image: ms5/gr10/performance-client:latest
+#    build:
+#      context: .
+#      dockerfile: Dockerfile-performanceClient
+#    depends_on:
+#      - kv-server.1
+#      - kv-server.2
+#      - kv-server.3
+#      - kv-server.4
+#      - kv-server.5
+##      - kv-server.6
+##      - kv-server.7
+##      - kv-server.8
+##      - kv-server.9
+##      - kv-server.10
+#    command:
+#      - "5"
+#      - "1"
+#      - "3_10c-5s"
+#    volumes:
+#      - G:\ms3\performance\:/mnt/mydata
+#  performance-client4:
+#    image: ms5/gr10/performance-client:latest
+#    build:
+#      context: .
+#      dockerfile: Dockerfile-performanceClient
+#    depends_on:
+#      - kv-server.1
+#      - kv-server.2
+#      - kv-server.3
+#      - kv-server.4
+#      - kv-server.5
+##      - kv-server.6
+##      - kv-server.7
+##      - kv-server.8
+##      - kv-server.9
+##      - kv-server.10
+#    command:
+#      - "5"
+#      - "1"
+#      - "4_10c-5s"
+#    volumes:
+#      - G:\ms3\performance\:/mnt/mydata
+#  performance-client5:
+#    image: ms5/gr10/performance-client:latest
+#    build:
+#      context: .
+#      dockerfile: Dockerfile-performanceClient
+#    depends_on:
+#      - kv-server.1
+#      - kv-server.2
+#      - kv-server.3
+#      - kv-server.4
+#      - kv-server.5
+##      - kv-server.6
+##      - kv-server.7
+##      - kv-server.8
+##      - kv-server.9
+##      - kv-server.10
+#    command:
+#      - "5"
+#      - "1"
+#      - "5_10c-5s"
+#    volumes:
+#      - G:\ms3\performance\:/mnt/mydata
+#  performance-client6:
+#    image: ms5/gr10/performance-client:latest
+#    build:
+#      context: .
+#      dockerfile: Dockerfile-performanceClient
+#    depends_on:
+#      - kv-server.1
+#      - kv-server.2
+#      - kv-server.3
+#      - kv-server.4
+#      - kv-server.5
+##      - kv-server.6
+##      - kv-server.7
+##      - kv-server.8
+##      - kv-server.9
+##      - kv-server.10
+#    command:
+#      - "5"
+#      - "1"
+#      - "6_10c-5s"
+#    volumes:
+#      - G:\ms3\performance\:/mnt/mydata
+#  performance-client7:
+#    image: ms5/gr10/performance-client:latest
+#    build:
+#      context: .
+#      dockerfile: Dockerfile-performanceClient
+#    depends_on:
+#      - kv-server.1
+#      - kv-server.2
+#      - kv-server.3
+#      - kv-server.4
+#      - kv-server.5
+##      - kv-server.6
+##      - kv-server.7
+##      - kv-server.8
+##      - kv-server.9
+##      - kv-server.10
+#    command:
+#      - "5"
+#      - "1"
+#      - "7_10c-5s"
+#    volumes:
+#      - G:\ms3\performance\:/mnt/mydata
+#  performance-client8:
+#    image: ms5/gr10/performance-client:latest
+#    build:
+#      context: .
+#      dockerfile: Dockerfile-performanceClient
+#    depends_on:
+#      - kv-server.1
+#      - kv-server.2
+#      - kv-server.3
+#      - kv-server.4
+#      - kv-server.5
+##      - kv-server.6
+##      - kv-server.7
+##      - kv-server.8
+##      - kv-server.9
+##      - kv-server.10
+#    command:
+#      - "5"
+#      - "1"
+#      - "8_10c-5s"
+#    volumes:
+#      - G:\ms3\performance\:/mnt/mydata
+#  performance-client9:
+#    image: ms5/gr10/performance-client:latest
+#    build:
+#      context: .
+#      dockerfile: Dockerfile-performanceClient
+#    depends_on:
+#      - kv-server.1
+#      - kv-server.2
+#      - kv-server.3
+#      - kv-server.4
+#      - kv-server.5
+##      - kv-server.6
+##      - kv-server.7
+##      - kv-server.8
+##      - kv-server.9
+##      - kv-server.10
+#    command:
+#      - "5"
+#      - "1"
+#      - "9_10c-5s"
+#    volumes:
+#      - G:\ms3\performance\:/mnt/mydata
+#  performance-client10:
+#    image: ms5/gr10/performance-client:latest
+#    build:
+#      context: .
+#      dockerfile: Dockerfile-performanceClient
+#    depends_on:
+#      - kv-server.1
+#      - kv-server.2
+#      - kv-server.3
+#      - kv-server.4
+#      - kv-server.5
+##      - kv-server.6
+##      - kv-server.7
+##      - kv-server.8
+##      - kv-server.9
+##      - kv-server.10
+#    command:
+#      - "5"
+#      - "1"
+#      - "10_10c-5s"
+#    volumes:
+#      - G:\ms3\performance\:/mnt/mydata
